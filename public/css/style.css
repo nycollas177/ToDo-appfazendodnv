@@ -1,25 +1,25 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-:root{
+:root {
     --bg-header-mobile: url(../imagens/bg-header-mobile-light.jpg);
     --bg-header-desktop: url(../imagens/bg-header-desktop-light.png);
-    --input-box-shadow: rgba(194, 195, 214, 0.50) ;
-    --input-color: #494C6b;
-    --input-bg:#fff;
+    --input-box-shadow: rgba(194, 195, 214, 0.50);
+    --input-color: #494C6B;
+    --input-bg: #FFF;
     --placeholder-color: #9495A5;
-    --button-color: #393A4B;
-    --button-color-hover: #494C6b;
-    --bg-body:#FAFAFA;
-    --bg-tarefas:#FFF;
+    --buton-color: #393A4B;
+    --buton-color-hover: #494C6B;
+    --bg-body: #fAfAfA;
+    --bg-tarefas: #FFF;
     --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);
     --border-color: #E3E4F1;
-    --text-color: #494C6b;
-    --todo-complete-color: #d1d2da;
+    --text-color: #494C6B;
+    --todo-complete-color: #D1D2DA;
     --info-text-color: #9495A5;
     --info-button-hover: #494C6B;
     --info-button-active: #3A7CFD;
@@ -28,21 +28,21 @@
 body.dark {
     --bg-header-mobile: url(../imagens/bg-header-mobile-dark.jpg);
     --bg-header-desktop: url(../imagens/bg-header-desktop-dark.jpg);
-    --input-box-shadow: rgba(0, 0, 0, 0.50) ;
+    --input-box-shadow: rgba(0, 0, 0, 0.50);
     --input-color: #C8CBE7;
-    --input-bg:#25273D; 
+    --input-bg: #25273D;
     --placeholder-color: #767992;
-    --button-color: #25273D;
-    --button-color-hover: #5B5E7E;
-    --bg-body:#171823;
-    --bg-tarefas:#25273D;
+    --buton-color: #25273D;
+    --buton-color-hover: #5B5E7E;
+    --bg-body: #171823;
+    --bg-tarefas: #25273D;
     --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
     --border-color: #393A4B;
     --text-color: #C8CBE7;
-    --todo-complete-color: #4d5067;
+    --todo-complete-color: #4D5067;
     --info-text-color: #5B5E7E;
     --info-button-hover: #E3E4F1;
-    --info-button-active: #3A7CFD;  
+    --info-button-active: #3A7CFD;
 }
 
 body {
@@ -108,7 +108,7 @@ header form button {
     padding: 0.75rem;
     border-radius: 0.3125;
     border: none;
-    background: var(--button-color);
+    background: var(--buton-color);
     color: #fff;
 }
 
@@ -125,7 +125,7 @@ main {
     margin-inline: auto;
 }
 
-.tarefas .tarefa{
+.tarefas .tarefa {
     padding: 1rem 1.25rem;
 }
 
@@ -144,7 +144,7 @@ main {
 }
 
 .tarefa div {
-    display: flex; 
+    display: flex;
     align-items: center;
     gap: 0.75rem;
 
@@ -195,7 +195,7 @@ main {
     color: var(--info-button-active);
 }
 
-@media(min-width:1000px) {
+@media(min-width: 1000px) {
     header {
         background-image: var(--bg-header-desktop);
         height: 18.75rem;
@@ -205,10 +205,10 @@ main {
     header div div {
         margin-bottom: 3rem;
     }
-
+    
     header form input {
         padding: 1.25rem 1.5rem;
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
 
     header form button {
@@ -217,23 +217,23 @@ main {
 
     header form button:hover {
         cursor: pointer;
-        background: var(--button-color-hover);
+        background: var(--buton-color-hover);
     }
 
     .tarefas {
         margin-top: -3rem;
     }
 
-    section.botoes{
-        display: none;
+    .tarefas .tarefa {
+        padding: 1.25rem 1.5rem; 
     }
 
     .tarefa div {
         font-size: 1.125rem;
     }
 
-    .tarefas .tarefa {
-        padding: 1.25rem 1.5rem;
+    section.botoes {
+        display: none;
     }
 
     .informacoes .botoes {
@@ -250,7 +250,7 @@ main {
         color: var(--info-button-hover);
     }
 
-    .tarefa button{
+    .tarefa button {
         visibility: hidden;
     }
 
@@ -261,6 +261,6 @@ main {
     }
 
     .tarefa:hover button {
-    visibility: initial;
+        visibility: initial;
     }
-}  
+}

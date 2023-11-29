@@ -17,22 +17,34 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 //rotas
+app.get('/limparTarefas', (requisicao, resposta) => {
+    const sql = 'DELETE FROM tarefas'
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro)
+        }
+
+        resposta.redirect('/')
+    })
+})
+
 app.post('/excluir', (requisicao, resposta) => {
     const id = requisicao.body.id
 
     const sql = `
-    DELETE FROM tarefas 
-    WHERE ID = ${id}
+        DELETE FROM tarefas
+        WHERE id = ${id}
     `
 
     conexao.query(sql, (erro) => {
         if (erro) {
-                return console.log(erro)
+            return console.log(erro)
         }
-    })
-    resposta.redirect('/')
-})
 
+        resposta.redirect('/')
+    })
+})
 
 app.post('/completar', (requisicao, resposta) => {
     const id = requisicao.body.id
@@ -52,8 +64,10 @@ app.post('/completar', (requisicao, resposta) => {
     })
 })
 
-app.post('/descompleta', (requisicao, resposta) => {
+app.post('/descompletar', (requisicao, resposta) => {
     const id = requisicao.body.id
+
+    console.log()
 
     const sql = `
         UPDATE tarefas
@@ -77,7 +91,7 @@ app.post('/criar', (requisicao, resposta) => {
     const sql = `
         INSERT INTO tarefas(descricao, completa)
         VALUES ('${descricao}', '${completa}')
-    ` 
+    `
 
     conexao.query(sql, (erro) => {
         if (erro) {
@@ -132,7 +146,7 @@ app.get('/ativas', (requisicao, resposta) => {
             }
         })
 
-        const quantidadeTarefasAtivas = tarefas.length
+        const quantidadeTarefas = tarefas.length
 
         resposta.render('ativas', { tarefas, quantidadeTarefas })
     })
@@ -150,21 +164,21 @@ app.get('/', (requisicao, resposta) => {
             return {
                 id: dado.id,
                 descricao: dado.descricao,
-                completa: dado.completa === 0 ? false : true    
+                completa: dado.completa === 0 ? false : true
             }
         })
 
-        const tarefasAtivas = tarefas.filther((tarefa) => {
+        const tarefasAtivas = tarefas.filter((tarefa) => {
             return tarefa.completa === false && tarefa
         })
 
         const quantidadeTarefasAtivas = tarefasAtivas.length
 
-        resposta.render('home', {tarefas, quantidadeTarefasAtivas})
+        resposta.render('home', { tarefas, quantidadeTarefasAtivas })
     })
 })
 
-const conexao = mysql.createConnection ({
+const conexao = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
@@ -177,9 +191,9 @@ conexao.connect((erro) => {
         return console.log(erro)
     }
 
-    console.log("estou conectado ao mysql")
+    console.log("Estou conectado ao MySQL.")
 
-    app.listen(3000, () =>{
-        console.log("Servidor rodando na porta 3000")
+    app.listen(3000, () => {
+        console.log("Servidor rodando na porta 3000!")
     })
 })

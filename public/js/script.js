@@ -14,11 +14,11 @@ function descompletarTarefa(id) {
     fetch("http://localhost:3000/descompletar", {
         method: "POST",
         headers: {
-            'Constent-type': 'aplication/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ id })
     })
-
+    
     window.location.reload()
 }
 
@@ -26,11 +26,10 @@ function excluirTarefa(id) {
     fetch("http://localhost:3000/excluir", {
         method: "POST",
         headers: {
-            'Constent-type': 'aplication/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ id })
     })
-
 }
 
 function alterarTema() {
@@ -43,14 +42,14 @@ function alterarTema() {
 
         if (tema === "light") {
             novoTema = "dark"
-            button.innerHTML= `<img src="/imagens/sun-icon.png" alt="icone do Sol">`
-            body.classList.remove("Light")
+            button.innerHTML = `<img src="/imagens/sun-icon.png" alt="icone do sol">`
+            body.classList.remove("light")
             body.classList.add("dark")
         } else {
             novoTema = "light"
-            button.innerHTML= `<img src="/imagens/moon-icon.png" alt="icone do Lua">`
+            button.innerHTML = `<img src="/imagens/moon-icon.png" alt="icone de lua">`
             body.classList.remove("dark")
-            body.classList.add("Light")
+            body.classList.add("light")
         }
 
         localStorage.setItem("tema", novoTema)
@@ -69,10 +68,10 @@ function verificarTema() {
     if (tema) {
         if (tema === "dark") {
             body.classList.add("dark")
-            button.innerHTML= `<img src="/imagens/sun-icon.png" alt="icone do Sol">`
+            button.innerHTML = `<img src="/imagens/sun-icon.png" alt="icone do sol">`
         } else {
             body.classList.add("light")
-            button.innerHTML= `<img src="/imagens/moon-icon.png" alt="icone do Lua">`
+            button.innerHTML = `<img src="/imagens/moon-icon.png" alt="icone de lua">`
         }
     }
 }
