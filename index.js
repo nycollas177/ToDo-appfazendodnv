@@ -47,14 +47,12 @@ app.get('/', (requisicao, resposta) => {
             return {
                 id: dado.id,
                 descricao: dado.descricao,
-                completa: dado.completa === 0 ? false : true
+                completa: dado.completa === 0 ? false : true    
             }
         })
 
-        console.log(dados)
+        resposta.render('home', {tarefas})
     })
-
-    resposta.render('home')
 })
 
 const conexao = mysql.createConnection ({
